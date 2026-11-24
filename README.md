@@ -1,171 +1,180 @@
-# 🏦 PREM BANK – Python Banking Management System
+# 🏦 PREM BANK – Banking Management System
 
-A simple and interactive **Banking Management System** developed using Python and Streamlit. This application allows users to create bank accounts, securely log in using a 4-digit PIN, check account balances, deposit money, withdraw money, and view transaction history.
+PREM BANK is one of my first-year Python projects, developed as part of my journey in Computer Science Engineering (Artificial Intelligence & Machine Learning).
 
-The application uses an Excel file to store account details and transaction records.
+I created this project to improve my Python programming skills and understand how basic banking operations can be implemented through code.
+
+The application allows users to create an account, log in using their account number and PIN, check their balance, deposit and withdraw money, and view their transaction history.
+
+To make the project more interesting, I developed it with two different interfaces: a **Command-Line Interface (CLI)** and a **web-based interface using Streamlit**.
 
 ## ✨ Features
 
-- **Create Account:** Create a new bank account with a unique account number and 4-digit PIN.
-- **Customer Login:** Login using an account number and PIN.
-- **Dashboard:** View account information and current balance.
-- **Check Balance:** Check the available account balance.
-- **Deposit Money:** Add money to your bank account.
-- **Withdraw Money:** Withdraw money with insufficient balance validation.
-- **Transaction History:** View all account transactions with date and time.
-- **Download History:** Download transaction records in CSV format.
-- **Session Management:** Maintain login sessions and provide logout functionality.
-- **Custom UI:** Clean and user-friendly interface designed using Streamlit and custom CSS.
+- **Create Account:** Create a new bank account with a name, account number, 4-digit PIN and opening balance.
+- **Customer Login:** Log in using an account number and PIN.
+- **Check Balance:** View the current account balance.
+- **Deposit Money:** Add money to the account.
+- **Withdraw Money:** Withdraw money with balance validation.
+- **Transaction History:** View previous transactions with their details.
+- **Download History:** Download transaction records in CSV format through the web application.
+- **Logout:** Exit the customer account.
 
-## 🛠️ Technologies Used
+## 🖥️ Application Interfaces
+
+This project has two interfaces:
+
+### 1. Command-Line Interface (CLI)
+
+The CLI version runs in the terminal and provides an interactive banking experience.
+
+It uses libraries like Rich, Colorama and PyFiglet to make the terminal interface more attractive and easier to use.
+
+### 2. Web Application (Streamlit)
+
+The web version provides a simple and clean graphical interface that can be accessed through a browser.
+
+It includes:
+- Home page
+- Account creation
+- Customer login
+- Banking dashboard
+- Balance checking
+- Deposit and withdrawal
+- Transaction history
+- CSV download option
+
+## 🛠️ Technologies & Libraries Used
 
 | Technology | Purpose |
 |---|---|
-| Python | Core programming language |
-| Streamlit | Web application interface |
-| OpenPyXL | Excel file handling |
-| Pandas | Transaction data management |
-| UUID | Unique transaction ID generation |
-| Datetime | Transaction date and time |
+| Python | Main programming language |
+| Streamlit | Building the web interface |
+| OpenPyXL | Managing Excel records |
+| Pandas | Handling transaction data |
+| Rich | Formatting terminal output |
+| Colorama | Adding terminal colors |
+| PyFiglet | Creating ASCII text |
+| Pwinput | Masking PIN input |
+| UUID | Generating transaction IDs |
+| Datetime | Recording date and time |
 
 ## 📂 Project Structure
 
 ```text
-PREM-BANK/
+banking_app/
 │
-├── app.py                 # Main Streamlit application
-├── banking_app.py         # Banking functions and account management
-├── bank_records.xlsx      # Excel database (auto-created)
-├── requirements.txt       # Project dependencies
-└── README.md              # Project documentation
+├── app.py
+│   └── Web application
+│
+├── banking_app.py
+│   └── Banking functions and CLI application
+│
+├── bank_records.xlsx
+│   └── Excel database
+│
+└── README.md
 ```
 
-*Note: The Excel database is created automatically when the application runs, depending on the implementation of `banking_app.py`.*
+The Excel database is created automatically when the application runs, if it does not already exist.
 
-## ⚙️ Installation and Setup
+## ⚙️ How to Run
 
-### 1. Clone the Repository
+### Step 1: Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/PREM-BANK.git
+git clone https://github.com/rupeshkolekar555-RK/banking_app.git
 ```
 
-### 2. Navigate to the Project Folder
+### Step 2: Open the Project Folder
 
 ```bash
-cd PREM-BANK
+cd banking_app
 ```
 
-### 3. Install Required Libraries
+### Step 3: Install Required Libraries
 
 ```bash
-pip install streamlit openpyxl pandas
+pip install streamlit openpyxl pandas rich colorama pyfiglet pwinput
 ```
 
-### 4. Run the Application
+### Step 4: Run the Application
+
+**For the Web Application:**
 
 ```bash
 streamlit run app.py
 ```
 
-### 5. Open in Browser
+**For the CLI Application:**
 
-After running the command, Streamlit will provide a local URL:
-
-```text
-http://localhost:8501
+```bash
+python banking_app.py
 ```
 
-Open this URL in your browser to access PREM BANK.
-
-## 📋 Application Modules
-
-### 1. Home
-Displays the welcome page and provides options to create an account or log in.
-
-### 2. Create Account
-Users can register by entering:
-- Customer Name
-- Account Number
-- 4-digit PIN
-- Opening Balance
-
-The application validates the inputs and prevents duplicate account numbers.
-
-### 3. Login
-Customers can access their accounts using their registered account number and PIN.
-
-### 4. Customer Dashboard
-Displays:
-- Customer Name
-- Account Number
-- Current Account Balance
-
-### 5. Banking Services
-
-| Service | Description |
-|---|---|
-| Check Balance | Displays the available balance |
-| Deposit Money | Adds money to the account |
-| Withdraw Money | Deducts money from the account |
-| Transaction History | Displays previous transactions |
-
-### 6. Transaction History
-Every transaction contains:
-- Transaction ID
-- Transaction Type
-- Transaction Amount
-- Previous Balance
-- Current Balance
-- Date and Time
-
-Users can also download their transaction history as a CSV file.
+For the web version, open `http://localhost:8501` in your browser.
 
 ## 💾 Data Storage
 
-PREM BANK uses an Excel workbook (`bank_records.xlsx`) as its database.
+I used an Excel file named `bank_records.xlsx` to store account details and transaction records.
 
-Account and transaction information is stored in rows containing account details, transaction information, balance records, and timestamps.
+The file maintains information such as:
 
-The Excel file is managed using the OpenPyXL library.
+- Account number
+- Customer name
+- PIN
+- Transaction ID
+- Transaction type
+- Transaction amount
+- Previous balance
+- Current balance
+- Transaction date and time
 
-## 🔐 Validations
+Whenever a customer deposits or withdraws money, a new transaction record is added to the Excel file.
 
-The application includes the following validations:
+## 📚 What I Learned
 
-- Name cannot be empty.
-- Account number must contain digits only.
-- Duplicate account numbers are not allowed.
-- PIN must contain exactly 4 digits.
-- Deposit amount must be greater than zero.
-- Withdrawal amount must be greater than zero.
-- Withdrawal cannot exceed the available balance.
-- Invalid login credentials are rejected.
+As a first-year student, working on this project helped me gain practical experience with several Python concepts.
+
+- Understanding Python functions and modules.
+- Working with external Python libraries.
+- Reading and writing Excel files.
+- Handling user input and validating data.
+- Using loops and conditional statements.
+- Generating unique transaction IDs.
+- Creating a web application using Streamlit.
+- Displaying data using Pandas.
+- Understanding basic banking operations and transaction management.
 
 ## 🚀 Future Improvements
 
-- Password/PIN hashing and stronger authentication.
-- SQLite or MySQL database integration.
-- Admin dashboard and customer management.
-- Money transfer between bank accounts.
-- PDF transaction statement generation.
-- Improved security and input validation.
-- Deployment as an online banking demo.
+I would like to improve this project by adding more features as I learn new technologies.
+
+- Integrate SQLite or MySQL.
+- Improve account security using PIN hashing.
+- Add money transfers between accounts.
+- Create an admin dashboard.
+- Generate PDF transaction statements.
+- Improve the overall user interface.
+- Deploy the application online.
 
 ## ⚠️ Disclaimer
 
-This project is developed for **educational purposes and Python programming practice**. It is not a real banking application and should not be used to store actual financial or sensitive customer information.
+This project is created for educational purposes as part of my learning journey in Python programming.
 
-The current Excel-based implementation stores PINs in plain text and is not suitable for production banking.
+It is a basic banking simulation, not a real banking system. It currently stores PINs in plain text and uses Excel for data storage. It should not be used for actual financial transactions or sensitive information.
 
-## 👨‍💻 Developer
+## 👨‍💻 About Me
 
-**Project Name:** PREM BANK  
-**Project Type:** Banking Management System  
-**Language:** Python  
-**Framework:** Streamlit  
-**Storage:** Microsoft Excel
+**Rupesh Kolekar**  
+First-Year B.Tech Student  
+Computer Science & Engineering (Artificial Intelligence & Machine Learning)
+
+I'm currently exploring Python programming, software development and the practical applications of technology through small projects like PREM BANK.
+
+**GitHub:** [@rupeshkolekar555-RK](https://github.com/rupeshkolekar555-RK)
+
+**Project Repository:** [PREM BANK](https://github.com/rupeshkolekar555-RK/banking_app)
 
 ---
 
-⭐ If you find this project useful, consider giving it a star on GitHub!
+⭐ Thanks for visiting my project! Suggestions and feedback are always welcome.
