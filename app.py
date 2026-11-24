@@ -6,7 +6,6 @@ import pandas as pd
 
 import banking_app as bank
 
-
 # -----------------------------------
 # PAGE CONFIGURATION
 # -----------------------------------
