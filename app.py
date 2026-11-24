@@ -10,6 +10,7 @@ import banking_app as bank
 # PAGE CONFIGURATION
 # -----------------------------------
 
+
 st.set_page_config(
     page_title="PREM BANK",
     page_icon="🏦",
